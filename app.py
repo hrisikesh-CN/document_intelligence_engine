@@ -4,7 +4,9 @@ from src.cloud_storage.aws_storage import S3Uploader
 # Flask app to use the S3Uploader
 app = Flask(__name__)
 
-
+@app.route("/test")
+def test():
+    return {"message": "Hello World!"}
 
 @app.route('/upload/<company_name>', methods=['POST'])
 def upload(company_name):
