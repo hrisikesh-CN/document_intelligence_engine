@@ -20,4 +20,4 @@ def upload(company_name):
     return {"results": upload_responses}
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(port=5000)
