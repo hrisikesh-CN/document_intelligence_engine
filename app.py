@@ -1,6 +1,6 @@
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
-
+from src.pipeline.qa_pipeline import QAPipeline
 from src.cloud_storage.aws_storage import S3Handler
 
 # Flask app to use the S3Uploader
@@ -26,6 +26,25 @@ def upload(company_name):
     return {"results": upload_responses}
 
 
+@cross_origin
+@app.route('/chat', methods=['POST'])
+def chat():
+    
+    data = request.get_json()
+    question = data['question']
+    urls = data['urls']  
+
+    # Ensure urls is a list
+    if not isinstance(urls, list):
+        urls = [urls]  # Convert single URL to a list
+        
+            
+    #download files
+    qa_pipeline = QAPipeline()
+    file_handler_artifact = qa_pipeline.start_data_ingestion(urls)
+    return {"restlt":file_handler_artifact.file_storage_dir,
+            "question":question}
+    
 
 
 

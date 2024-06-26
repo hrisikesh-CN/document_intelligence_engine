@@ -75,7 +75,7 @@ class S3Handler:
 
     # Flask app to use the S3Uploader
     @staticmethod
-    def download_file_from_s3(file_s3_url: url, local_file_path: path):
+    def download_file_from_s3(bucket_name, object_key, local_file_path: str):
         """
         This functions downloads the files from s3 bucket.
 
@@ -85,7 +85,6 @@ class S3Handler:
         """
         try:
             s3 = boto3.client('s3')
-            bucket_name, object_key = extract_s3_info(file_s3_url)
 
             s3.download_file(bucket_name, object_key, local_file_path)
             print(f"File downloaded from S3 bucket {bucket_name} with key {object_key} to {local_file_path}")
