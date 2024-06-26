@@ -85,6 +85,7 @@ jobs:
 
       - name: Stop and remove existing container if running
         run: |
+          
           CONTAINER_ID=$(docker ps -q --filter "name=ml-server")
           if [ ! -z "$CONTAINER_ID" ]; then
             docker stop $CONTAINER_ID
