@@ -20,7 +20,7 @@ def upload(company_name):
 
     # Initialize the S3Uploader
     s3_uploader = S3Handler(
-        bucketname=company_name
+        bucket_name=company_name
     )
     upload_responses = s3_uploader.upload_files(files)
     return {"results": upload_responses}

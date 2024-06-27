@@ -20,3 +20,8 @@ class FileHandlerConfig:
         artifact_dir,
         FILE_STORAGE_ARTIFACT_DIR_NAME
     )
+    
+    
+@dataclass
+class DataTransformationConfig:
+    pass
