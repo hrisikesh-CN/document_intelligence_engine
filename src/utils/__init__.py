@@ -1,4 +1,8 @@
-import re 
+import re
+import sys
+import subprocess
+
+
 def extract_s3_info(url):
     # Define the regex pattern for extracting bucket name and filename
     pattern = r"https://([^.]+)\.s3\.amazonaws\.com/(.+)"
@@ -9,3 +13,6 @@ def extract_s3_info(url):
         return bucket_name, filename
     else:
         raise ValueError("URL format is not valid")
+
+
+

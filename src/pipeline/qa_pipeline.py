@@ -9,7 +9,7 @@ class QAPipeline:
     def __init__(self) -> None:
         pass
     
-    def start_data_ingestion(self, urls:list[str]):
+    def start_data_ingestion(self, urls: list[str]):
         """This method is initiates the data ingestion process and
         returns the file handler artifact with the file storage dir path.
 
